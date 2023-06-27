@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSVP and Comment Section</title>
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .comments {
+      margin-top: 20px;
+    }
+
+    .comment {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>RSVP and Comment Section</h1>
+    <form id="rsvpForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="rsvp">RSVP:</label>
+      <select id="rsvp" required>
+        <option value="">Select...</option>
+        <option value="yes">Yes, I will attend.</option>
+        <option value="no">No, I will not attend.</option>
+      </select>
+
+      <button type="submit">Submit RSVP</button>
+    </form>
+
+    <div class="comments">
+      <h2>Comments</h2>
+      <div id="commentList"></div>
+
+      <form id="commentForm">
+        <label for="comment">Leave a comment:</label>
+        <textarea id="comment" required></textarea>
+        <button type="submit">Submit Comment</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // RSVP form submission
+    document.getElementById('rsvpForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var rsvp = document.getElementById('rsvp').value;
+
+      // Handle the RSVP data (e.g., send it to the server)
+      // Replace this with your own logic or API call
+
+      alert('Thank you for your RSVP, ' + name + '!');
+
+      // Reset the form
+      document.getElementById('rsvpForm').reset();
+    });
+
+    // Comment form submission
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var comment = document.getElementById('comment').value;
+
+      // Handle the comment data (e.g., send it to the server)
+      // Replace this with your own logic or API call
+
+      // Create a new comment element
+      var commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+      commentElement.textContent = comment;
+
+      // Append the new comment to the comment list
+      document.getElementById('commentList').appendChild(commentElement);
+
+      // Reset the form
+      document.getElementById('commentForm').reset();
+    });
+  </script>
+</body>
+</html>
